@@ -1,0 +1,257 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102a24">
+  <meta name="description" content="InstitutePro coaching institute management">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <title>InstitutePro — Institute Management</title>
+</head>
+<body>
+  <section id="auth" class="auth-screen">
+    <div class="auth-card">
+      <div class="auth-brand"><span class="brand-mark">IP</span><span>Institute<span class="brand-accent">Pro</span></span></div>
+      <div class="auth-art">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-chip chip-one">✦ Learning made simple</div>
+        <div class="art-chip chip-two">✧ Manage smarter</div>
+        <div class="art-monogram">IP</div>
+      </div>
+      <div class="auth-content">
+        <span class="eyebrow">WELCOME TO INSTITUTEPro</span>
+        <h1>Everything your institute needs.</h1>
+        <p class="auth-subtitle">A clearer way to manage students, classes, attendance and fees.</p>
+        <form id="authForm">
+          <label id="nameLabel" class="hidden" for="name">Your name</label>
+          <input id="name" class="hidden" placeholder="Full name">
+          <label for="email">Email address</label>
+          <input id="email" type="email" required placeholder="you@example.com">
+          <label for="password">Password</label>
+          <input id="password" type="password" required minlength="8" placeholder="At least 8 characters">
+          <button id="authBtn" class="primary-btn full-btn">Sign in <span>→</span></button>
+        </form>
+        <button class="text-btn" id="toggleAuth">New to InstitutePro? <b>Create an account</b></button>
+        <p class="auth-footnote">Secure workspace · Simple institute management</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="setup" class="auth-screen hidden">
+    <div class="setup-card">
+      <div class="brand-mark">IP</div>
+      <span class="eyebrow">ONE LAST STEP</span>
+      <h1>Set up your institute</h1>
+      <p>Give your workspace a name. You can start adding classes and students right after.</p>
+      <form id="setupForm">
+        <label for="instituteName">Institute name</label>
+        <input id="instituteName" required placeholder="e.g. Bright Future Academy">
+        <button class="primary-btn full-btn">Create workspace <span>→</span></button>
+      </form>
+    </div>
+  </section>
+
+  <div id="app" class="app-shell hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="InstitutePro home">
+        <span class="brand-mark">IP</span>
+        <span>Institute<span class="brand-accent">Pro</span><small>MANAGEMENT SUITE</small></span>
+      </a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav>
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span><span>Overview</span></button>
+        <button class="nav-item" data-page="students"><span class="nav-icon">♙</span><span>Students</span></button>
+        <button class="nav-item" data-page="classes"><span class="nav-icon">▦</span><span>Classes & batches</span></button>
+        <button class="nav-item" data-page="attendance"><span class="nav-icon">✓</span><span>Attendance</span></button>
+      </nav>
+      <div class="nav-label finance-label">FINANCE</div>
+      <nav>
+        <button class="nav-item" data-page="fees"><span class="nav-icon">₹</span><span>Fee management</span></button>
+        <button class="nav-item" data-page="payments"><span class="nav-icon">⇄</span><span>Payments</span></button>
+        <button class="nav-item" data-page="reminders"><span class="nav-icon">♧</span><span>Fee reminders</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <span class="help-spark">✦</span>
+          <b>Need a hand?</b>
+          <p>Your institute workspace, all in one place.</p>
+        </div>
+        <button id="logout" class="logout-btn"><span>↪</span> Sign out</button>
+      </div>
+      <div class="sidebar-version">INSTITUTEPro <span>PHASE 1</span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">IP</span><b>Institute<span class="brand-accent">Pro</span></b></div>
+        <div class="breadcrumb"><span>Workspace</span><i>/</i><b id="heading">Overview</b></div>
+        <div class="topbar-right">
+          <div class="status-pill"><span></span> Workspace active</div>
+          <div class="user-chip">
+            <div class="avatar" id="avatar">A</div>
+            <div class="user-meta"><b id="user">Admin</b><small>Administrator</small></div>
+          </div>
+        </div>
+      </header>
+
+      <section id="dashboard" class="page dashboard-page">
+        <div class="welcome-banner">
+          <div class="welcome-copy">
+            <span class="eyebrow light-eyebrow">YOUR INSTITUTE AT A GLANCE</span>
+            <h1>Good to see you.</h1>
+            <p>Here’s what’s happening in your institute today.</p>
+            <button class="banner-btn" data-page="students">Explore students <span>→</span></button>
+          </div>
+          <div class="banner-art">
+            <div class="banner-circle circle-a"></div>
+            <div class="banner-circle circle-b"></div>
+            <div class="banner-card"><span>INSTITUTE</span><strong>IP</strong><small>GROW · LEARN · ACHIEVE</small></div>
+            <div class="banner-star star-a">✦</div>
+            <div class="banner-star star-b">✧</div>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div><span class="eyebrow">PERFORMANCE</span><h2>Institute overview</h2></div>
+          <span class="today-tag">● Live workspace</span>
+        </div>
+        <div class="metrics">
+          <article class="metric-card">
+            <div class="metric-top"><span class="metric-icon students-icon">♙</span><span class="metric-kicker">ENROLMENT</span></div>
+            <strong id="mStudents">0</strong>
+            <div class="metric-bottom"><span>Active students</span><span class="metric-arrow">↗</span></div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span class="metric-icon attendance-icon">✓</span><span class="metric-kicker">TODAY</span></div>
+            <strong id="mPresent">0</strong>
+            <div class="metric-bottom"><span>Students present</span><span class="metric-arrow">↗</span></div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span class="metric-icon paid-icon">₹</span><span class="metric-kicker">COLLECTION</span></div>
+            <strong id="mPaid">₹0</strong>
+            <div class="metric-bottom"><span>Verified payments</span><span class="metric-arrow">↗</span></div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span class="metric-icon due-icon">◷</span><span class="metric-kicker">PENDING</span></div>
+            <strong id="mDue">₹0</strong>
+            <div class="metric-bottom"><span>Outstanding fees</span><span class="metric-arrow">↗</span></div>
+          </article>
+        </div>
+
+        <div class="section-heading quick-heading">
+          <div><span class="eyebrow">GET THINGS DONE</span><h2>Quick actions</h2></div>
+        </div>
+        <div class="quick-grid">
+          <button class="quick-card" data-action="student"><span class="quick-icon q-green">＋</span><span><b>Add a student</b><small>Register a new learner</small></span><i>→</i></button>
+          <button class="quick-card" data-action="class"><span class="quick-icon q-blue">▦</span><span><b>Create a class</b><small>Set up a new batch</small></span><i>→</i></button>
+          <button class="quick-card" data-action="fee"><span class="quick-icon q-orange">₹</span><span><b>Create fee record</b><small>Track a student's fees</small></span><i>→</i></button>
+          <button class="quick-card" data-page="attendance"><span class="quick-icon q-purple">✓</span><span><b>Mark attendance</b><small>Take today's attendance</small></span><i>→</i></button>
+        </div>
+        <div class="bottom-note"><span>✦</span><p><b>Small steps, better management.</b> Keep your student records, attendance and fee collection organised in one workspace.</p></div>
+      </section>
+
+      <section id="students" class="page hidden">
+        <div class="page-intro">
+          <div><span class="eyebrow">PEOPLE</span><h1>Students</h1><p>Manage your student directory and parent contact details.</p></div>
+          <button class="primary-btn" data-action="student">＋ Add student</button>
+        </div>
+        <div class="panel">
+          <div class="panel-heading"><div><h3>Student directory</h3><p>Your enrolled students</p></div><span class="panel-dot">● LIVE DATA</span></div>
+          <div id="studentRows">No students yet.</div>
+        </div>
+      </section>
+
+      <section id="classes" class="page hidden">
+        <div class="page-intro">
+          <div><span class="eyebrow">ACADEMICS</span><h1>Classes & batches</h1><p>Organise subjects, class groups and schedules.</p></div>
+          <button class="primary-btn" data-action="class">＋ Add class</button>
+        </div>
+        <div class="panel">
+          <div class="panel-heading"><div><h3>All classes</h3><p>Manage your active batches</p></div></div>
+          <div id="classRows">No classes yet.</div>
+        </div>
+      </section>
+
+      <section id="attendance" class="page hidden">
+        <div class="page-intro"><div><span class="eyebrow">DAILY TRACKING</span><h1>Attendance</h1><p>Mark and save attendance for each class.</p></div></div>
+        <div class="panel">
+          <div class="panel-heading"><div><h3>Take attendance</h3><p>Choose a class and date to load students.</p></div></div>
+          <form id="attendanceForm">
+            <select id="attendanceClass" required aria-label="Choose class"></select>
+            <input id="attendanceDate" type="date" required aria-label="Attendance date">
+            <button class="primary-btn">Load students →</button>
+          </form>
+          <div id="attendanceRows"></div>
+          <button id="saveAttendance" class="primary-btn hidden">Save attendance</button>
+        </div>
+      </section>
+
+      <section id="fees" class="page hidden">
+        <div class="page-intro">
+          <div><span class="eyebrow">FINANCE</span><h1>Fee management</h1><p>Monitor fee plans, paid amounts and outstanding balances.</p></div>
+          <button class="primary-btn" data-action="fee">＋ Create fee record</button>
+        </div>
+        <div class="panel">
+          <div class="panel-heading"><div><h3>Fee records</h3><p>All student fee accounts</p></div><span class="panel-dot">● UPDATED</span></div>
+          <div id="feeRows">No fee records yet.</div>
+        </div>
+      </section>
+
+      <section id="payments" class="page hidden">
+        <div class="page-intro">
+          <div><span class="eyebrow">TRANSACTIONS</span><h1>Payments</h1><p>Review and verify payment submissions.</p></div>
+          <button class="primary-btn" data-action="payment">＋ Record payment</button>
+        </div>
+        <div class="panel">
+          <div class="panel-heading"><div><h3>Pending verification</h3><p>Check the actual transaction before approving.</p></div><span class="review-tag">NEEDS REVIEW</span></div>
+          <div id="paymentRows">No pending payments.</div>
+        </div>
+      </section>
+
+      <section id="reminders" class="page hidden">
+        <div class="page-intro"><div><span class="eyebrow">PARENT COMMUNICATION</span><h1>Fee reminders</h1><p>Prepare a friendly reminder for outstanding fees.</p></div></div>
+        <div class="reminder-layout">
+          <div class="panel reminder-panel">
+            <div class="reminder-icon">♧</div>
+            <h3>Send a fee reminder</h3>
+            <p>Select a pending fee account, then prepare a WhatsApp or SMS message for review.</p>
+            <label for="reminderFee">Student fee account</label>
+            <select id="reminderFee"></select>
+            <div class="reminder-actions">
+              <button id="wa" class="whatsapp-btn">◉ WhatsApp reminder</button>
+              <button id="sms" class="secondary-btn">▤ SMS reminder</button>
+            </div>
+            <p class="hint">Messages open in your messaging app. You review and send them manually.</p>
+          </div>
+          <div class="reminder-info">
+            <span class="eyebrow">HOW IT WORKS</span>
+            <h3>Stay connected with parents.</h3>
+            <div class="info-step"><b>01</b><span><strong>Choose a fee record</strong><small>Select the student with pending dues.</small></span></div>
+            <div class="info-step"><b>02</b><span><strong>Prepare the message</strong><small>InstitutePro fills in the amount and due date.</small></span></div>
+            <div class="info-step"><b>03</b><span><strong>Review & send</strong><small>Check the details before sending to the parent.</small></span></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="app-footer"><span>© 2026 InstitutePro</span><span>Made for better learning management <b>✦</b></span></footer>
+    </main>
+  </div>
+
+  <dialog id="modal">
+    <form id="modalForm">
+      <div class="modal-top"><span class="eyebrow">INSTITUTEPro</span><button type="button" id="cancel" class="modal-close">×</button></div>
+      <h2 id="modalTitle">Add record</h2>
+      <div id="fields"></div>
+      <div class="actions">
+        <button type="button" id="cancelAlt" class="secondary-btn">Cancel</button>
+        <button class="primary-btn">Save record →</button>
+      </div>
+    </form>
+  </dialog>
+  <div id="toast" role="status"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
